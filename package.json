@@ -1,0 +1,19 @@
+{
+  "name": "jira-tool",
+  "version": "1.0.0",
+  "description": "Get and copy issue details.",
+  "main": "app.js",
+  "author": "Tim Douglas",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^3.0.13",
+    "electron-packager": "^13.0.1",
+    "tiny-json-http": "^6.0.0"
+  },
+  "scripts": {
+    "start": "electron app.js"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.3"
+  }
+}
