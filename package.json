@@ -6,14 +6,19 @@
   "author": "Tim Douglas",
   "license": "ISC",
   "dependencies": {
+    "cpjax": "^1.1.3",
     "electron": "^3.0.13",
     "electron-packager": "^13.0.1",
-    "tiny-json-http": "^7.0.2"
+    "fastn": "^2.11.6"
   },
   "scripts": {
-    "start": "electron app.js"
+    "build": "node build.js",
+    "start": "electron app.js",
+    "watch": "watch --interval 1 \"node build.js\" src"
   },
   "devDependencies": {
-    "browserify": "^16.2.3"
+    "browserify": "^16.2.3",
+    "envify": "^4.1.0",
+    "uglifyify": "^5.0.1"
   }
 }
