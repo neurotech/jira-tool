@@ -21,7 +21,8 @@ window.addEventListener("load", function() {
   const view = fastn(
     "div",
     components.SearchBox(fastn, app),
-    components.Results(fastn)
+    components.Results(fastn),
+    components.Actions(fastn)
   );
   view.attach(state);
   view.render();
