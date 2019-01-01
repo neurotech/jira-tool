@@ -9,6 +9,7 @@ const results = function createResultsComponent(fastn) {
       if (results) {
         return fastn(
           "div",
+          { class: "results" },
           fastn("div", { class: "issue-key" }, fastn.binding("key")),
           " - ",
           fastn("div", { class: "issue-summary" }, fastn.binding("summary"))

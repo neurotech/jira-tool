@@ -3,6 +3,7 @@ const searchBox = function createSearchComponent(fastn, app) {
     "form",
     fastn("input", {
       value: fastn.binding("searchString"),
+      autofocus: true,
       onchange: "value:value"
     })
   )
