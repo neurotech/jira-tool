@@ -10,11 +10,12 @@ const actions = function createActionsComponent(fastn) {
       {
         class: fastn.binding("results", function(results) {
           return !results ? "blbb" : "quiggle";
-        })
+        }),
+        display: fastn.binding("results")
       },
       "COPY"
-    ).on("click", (event, scope) => {
-      var text = document.querySelector(".issue-summary").innerText;
+    ).on("click", () => {
+      var text = document.querySelector(".results").innerText;
       copy(text);
     }),
     fastn("button", { display: fastn.binding("results") }, "OPEN")
