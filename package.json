@@ -8,16 +8,17 @@
   "dependencies": {
     "copy-text-to-clipboard": "^1.0.4",
     "cpjax": "^1.1.3",
-    "electron": "^4.0.0",
-    "electron-packager": "^13.0.1",
     "fastn": "^2.11.6"
   },
   "scripts": {
     "build": "node build.js",
-    "start": "electron app.js",
+    "bundle": "npm run build && electron-packager ./ jira-tool --platform=win32 --arch=x64 --asar",
+    "start": "npm run build && electron app.js",
     "watch": "watch --interval 1 \"node build.js\" src"
   },
   "devDependencies": {
+    "electron": "^4.0.0",
+    "electron-packager": "^13.0.1",
     "browserify": "^16.2.3",
     "envify": "^4.1.0",
     "uglifyify": "^5.0.1"
