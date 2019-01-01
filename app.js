@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut } = require("electron"); //
+const { app, BrowserWindow, globalShortcut } = require("electron");
 const path = require("path");
 const url = require("url");
 
@@ -9,7 +9,8 @@ app.once("ready", () => {
     width: 800,
     height: 500,
     show: false,
-    resizable: false
+    resizable: false,
+    backgroundColor: "#ffffff"
   });
 
   window.loadURL(path.join(__dirname, "build/index.html"));
@@ -22,10 +23,10 @@ app.once("ready", () => {
     window.show();
   });
 
-  // window.on("close", event => {
-  //   event.preventDefault();
-  //   window.hide();
-  // });
+  window.on("close", event => {
+    event.preventDefault();
+    window.hide();
+  });
 });
 
 app.on("window-all-closed", event => {
