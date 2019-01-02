@@ -6,9 +6,10 @@ let window = null;
 
 app.once("ready", () => {
   window = new BrowserWindow({
-    width: 512,
-    height: 256,
+    width: 520,
+    height: 235,
     show: false,
+    frame: false,
     resizable: false,
     backgroundColor: "#ffffff"
   });
