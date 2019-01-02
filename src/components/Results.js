@@ -1,3 +1,5 @@
+const Loading = require("./Loading");
+
 const results = function createResultsComponent(fastn) {
   return fastn("templater", {
     data: fastn.binding("results", "isLoading", (results, isLoading) => ({
@@ -22,6 +24,8 @@ const results = function createResultsComponent(fastn) {
           fastn.binding("status")
         )
       );
+      var step = 0;
+      var loading = Loading(fastn);
       var resultsComponent = fastn(
         "div",
         {
@@ -31,7 +35,7 @@ const results = function createResultsComponent(fastn) {
           "data-key": fastn.binding("key")
         },
         !results && !isLoading ? "Please enter an issue key above." : null,
-        !results && isLoading ? "Querying JIRA..." : null,
+        isLoading ? loading : null,
         results ? issue : null,
         results ? status : null
       ).binding("item.results");
