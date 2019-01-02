@@ -7,7 +7,7 @@ let password = process.env.JIRA_PASSWORD;
 const search = function searchJIRA(key, callback) {
   cpjax(
     {
-      url: `${jiraURL}/rest/api/2/search?jql=key="DEV-${key}"`,
+      url: `${jiraURL}/rest/api/2/search?jql=key="DEV-${key}"&fields=key,summary,status`,
       auth:
         "Basic " +
         new Buffer(username + ":" + password, "utf8").toString("base64")
