@@ -5,6 +5,9 @@ const jira = require("./jira");
 window.addEventListener("load", function() {
   var state = { isLoading: false };
   var app = {
+    clearResults: () => {
+      fastn.Model.remove(state, "results");
+    },
     setSearch: value => {
       fastn.Model.set(state, "search", value);
       app.loadData(value);
@@ -20,6 +23,7 @@ window.addEventListener("load", function() {
   };
   const view = fastn(
     "div",
+    { class: "container" },
     components.SearchBox(fastn, app),
     components.Results(fastn),
     components.Actions(fastn)

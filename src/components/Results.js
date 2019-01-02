@@ -6,21 +6,37 @@ const results = function createResultsComponent(fastn) {
     })),
     template: model => {
       var { results, isLoading } = model.get("item") || {};
-      if (results) {
-        return fastn(
+      var issue = fastn("div", { class: "issue" }, fastn.binding("combined"));
+      var status = fastn(
+        "div",
+        { class: "status" },
+        fastn(
           "div",
-          { class: "results" },
-          fastn("div", { class: "issue-key" }, fastn.binding("key")),
-          " - ",
-          fastn("div", { class: "issue-summary" }, fastn.binding("summary"))
-        ).binding("item.results");
-      }
+          {
+            class: fastn.binding("status", function(status) {
+              return `bubble ${
+                status ? status.replace(/\s+/g, "-").toLowerCase() : ""
+              }`;
+            })
+          },
+          fastn.binding("status")
+        )
+      );
+      var resultsComponent = fastn(
+        "div",
+        {
+          class: `results ${isLoading ? "loading" : ""} ${
+            !results && !isLoading ? "empty" : ""
+          }`,
+          "data-key": fastn.binding("key")
+        },
+        !results && !isLoading ? "Please enter an issue key above." : null,
+        !results && isLoading ? "Querying JIRA..." : null,
+        results ? issue : null,
+        results ? status : null
+      ).binding("item.results");
 
-      if (isLoading) {
-        return fastn("div", "LOADING!");
-      }
-
-      return fastn("div", "Please enter a issue number above and hit ENTER!");
+      return resultsComponent;
     }
   });
 };
