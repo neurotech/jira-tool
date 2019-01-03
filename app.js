@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut } = require("electron");
+const { app, BrowserWindow, globalShortcut, Tray, Menu } = require("electron");
 const path = require("path");
 
 let window = null;
@@ -13,6 +13,23 @@ app.once("ready", () => {
     backgroundColor: "#ffffff"
   });
 
+  var appIcon = new Tray(path.join(__dirname, "./icons/tray.ico"));
+  var contextMenu = Menu.buildFromTemplate([
+    {
+      label: "Show App",
+      click: function() {
+        window.show();
+      }
+    },
+    {
+      label: "Quit",
+      click: function() {
+        app.quit();
+      }
+    }
+  ]);
+  appIcon.setContextMenu(contextMenu);
+
   window.loadURL(path.join(__dirname, "build/index.html"));
 
   globalShortcut.register("Control+Shift+Space", () => {
@@ -22,13 +39,13 @@ app.once("ready", () => {
   window.once("ready-to-show", () => {
     window.show();
   });
-
-  window.on("close", event => {
-    event.preventDefault();
-    window.hide();
-  });
 });
 
-app.on("window-all-closed", event => {
-  event.preventDefault();
-});
+// app.on("window-all-closed", event => {
+//   event.preventDefault();
+//   return false;
+// });
+
+// app.on("ready", function() {
+
+// });
