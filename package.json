@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "node build.js",
-    "bundle": "npm run build && electron-packager ./ jira-tool --platform=win32 --arch=x64 --asar --out=./dist",
+    "bundle": "set NODE_ENV=\"production\" npm run build && electron-packager ./ jira-tool --platform=win32 --arch=x64 --asar --out=./dist",
     "start": "npm run build && electron .",
     "watch": "watch --interval 1 \"node build.js\" src"
   },
