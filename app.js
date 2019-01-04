@@ -3,7 +3,7 @@ const path = require("path");
 
 let window = null;
 
-app.once("ready", () => {
+app.on("ready", () => {
   window = new BrowserWindow({
     width: 520,
     height: 235,
@@ -40,12 +40,3 @@ app.once("ready", () => {
     window.show();
   });
 });
-
-// app.on("window-all-closed", event => {
-//   event.preventDefault();
-//   return false;
-// });
-
-// app.on("ready", function() {
-
-// });
