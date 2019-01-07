@@ -2,6 +2,7 @@ const { app, BrowserWindow, globalShortcut, Tray, Menu } = require("electron");
 const path = require("path");
 
 let window = null;
+let tray = null;
 
 app.on("ready", () => {
   window = new BrowserWindow({
@@ -13,7 +14,7 @@ app.on("ready", () => {
     backgroundColor: "#ffffff"
   });
 
-  var appIcon = new Tray(path.join(__dirname, "./icons/tray.ico"));
+  tray = new Tray(path.join(__dirname, "./icons/tray.ico"));
   var contextMenu = Menu.buildFromTemplate([
     {
       label: "Show App",
@@ -28,7 +29,7 @@ app.on("ready", () => {
       }
     }
   ]);
-  appIcon.setContextMenu(contextMenu);
+  tray.setContextMenu(contextMenu);
 
   window.loadURL(path.join(__dirname, "build/index.html"));
 
