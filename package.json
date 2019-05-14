@@ -11,6 +11,8 @@
     "fastn": "^2.12.0"
   },
   "scripts": {
+    "clean": "rm -rf .cache/ && rm -rf build/ && rm -rf dist/",
+    "prebundle": "npm run clean",
     "build": "parcel build src/index.html --out-dir build --public-url ./",
     "bundle": "npm run build && electron-packager ./ jira-tool --platform=win32 --arch=x64 --asar --out=./dist",
     "start": "npm run build && electron .",
