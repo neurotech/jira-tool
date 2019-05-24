@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { app, BrowserWindow, globalShortcut, Tray, Menu } = require("electron");
 const path = require("path");
 
@@ -9,7 +10,7 @@ app.on("ready", () => {
     width: 520,
     height: 235,
     show: false,
-    frame: true,
+    frame: false,
     resizable: false,
     backgroundColor: "#ffffff"
   });
