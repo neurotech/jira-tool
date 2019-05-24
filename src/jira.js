@@ -1,4 +1,3 @@
-require("dotenv").config({ path: "../" });
 const cpjax = require("cpjax");
 
 let jiraURL = process.env.JIRA_URL;
