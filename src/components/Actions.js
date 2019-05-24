@@ -23,21 +23,6 @@ const actions = function createActionsComponent(fastn, app) {
         button.classList.remove("copied");
         button.innerText = "Copy Issue Summary";
       }, 1000);
-    }),
-    fastn(
-      "div",
-      {
-        class: fastn.binding("results", function(results) {
-          return `action-button open ${results ? "active" : "inactive"}`;
-        })
-      },
-      "Open Issue in JIRA"
-    ).on("click", event => {
-      event.preventDefault();
-      const { shell } = window.require("electron");
-      const jiraURL = process.env.JIRA_URL;
-      const key = document.querySelector(".results").getAttribute("data-key");
-      shell.openExternal(`${jiraURL}/browse/${key}`);
     })
   );
 };

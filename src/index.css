@@ -118,6 +118,10 @@ form {
   background-color: var(--blue);
 }
 
+.bubble.done {
+  background-color: var(--green);
+}
+
 .bubble.on-hold {
   background-color: var(--yellow);
   color: var(--chocolate);
@@ -159,7 +163,7 @@ form {
 
 .action-button {
   -webkit-app-region: no-drag;
-  width: 48%;
+  width: 100%;
   font-family: var(--font-family-sans-serif);
   font-size: 1rem;
   line-height: 1.8rem;
@@ -198,7 +202,7 @@ form {
   }
   50% {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
   100% {
     transform: scale(1);
