@@ -24,7 +24,6 @@ const results = function createResultsComponent(fastn) {
           fastn.binding("status")
         )
       );
-      var step = 0;
       var loading = Loading(fastn);
       var resultsComponent = fastn(
         "div",

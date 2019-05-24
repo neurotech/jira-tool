@@ -1,7 +1,6 @@
-// TODO: TIDY Conditional CSS classes to disable/enable buttons
 const copy = require("copy-text-to-clipboard");
 
-const actions = function createActionsComponent(fastn) {
+const actions = function createActionsComponent(fastn, app) {
   return fastn(
     "div",
     { class: "actions" },
@@ -12,11 +11,12 @@ const actions = function createActionsComponent(fastn) {
           return `action-button copy ${results ? "active" : "inactive"}`;
         })
       },
-      "Copy Issue Summary"
+      "Copy Markdown"
     ).on("click", () => {
+      var markdown = app.getMarkdown();
+      copy(markdown);
+
       var button = document.querySelector(".action-button.copy");
-      var text = document.querySelector(".issue").innerText;
-      copy(text);
       button.classList.add("copied");
       button.innerText = "Copied!";
       setTimeout(function removeCopied() {

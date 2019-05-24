@@ -19,6 +19,10 @@ window.addEventListener("load", function() {
         if (err) return console.error(err);
         fastn.Model.set(state, "results", data);
       });
+    },
+    getMarkdown: function() {
+      var md = fastn.Model.get(state, "results.markdown");
+      return md;
     }
   };
   const view = fastn(
@@ -26,7 +30,7 @@ window.addEventListener("load", function() {
     { class: "container" },
     components.SearchBox(fastn, app),
     components.Results(fastn),
-    components.Actions(fastn)
+    components.Actions(fastn, app)
   );
   view.attach(state);
   view.render();

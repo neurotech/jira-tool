@@ -9,7 +9,7 @@ app.on("ready", () => {
     width: 520,
     height: 235,
     show: false,
-    frame: false,
+    frame: true,
     resizable: false,
     backgroundColor: "#ffffff"
   });
