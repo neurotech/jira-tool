@@ -20,7 +20,7 @@
     "watch": "parcel serve src/index.html"
   },
   "devDependencies": {
-    "electron": "^5.0.2",
+    "electron": "^9.1.0",
     "electron-packager": "^13.1.1",
     "parcel": "^1.12.3"
   }
